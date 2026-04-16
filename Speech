@@ -72,18 +72,15 @@ class TTSHandler:
 class TTSApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("TTS-приложение")
+        self.root.title("Преобразование текста в речь (TTS)")
         self.root.geometry("500x400")
         self.root.resizable(False, False)
 
-       
         self.root.configure(bg='#f0f0f0')
 
-     
         self.style = ttk.Style()
         self.style.theme_use('clam')
 
-       
         self.style.configure("TLabel",
                              font=("Arial", 11),
                              foreground="black",
@@ -96,7 +93,7 @@ class TTSApp:
                              foreground="black",
                              borderwidth=1,
                              relief="flat")
-        
+
         self.style.map("TButton",
                        background=[('active', '#d0d0d0')])
 
@@ -105,13 +102,11 @@ class TTSApp:
         self.tts_handler.initialize_tts('ru', False)
 
     def setup_ui(self):
-     
         title_label = ttk.Label(self.root,
-                                text="Текст в речь",
+                                text="Преобразование текста в речь",
                                 font=("Arial", 16))
         title_label.pack(pady=10)
 
-        
         text_frame = ttk.Frame(self.root)
         text_frame.pack(padx=20, pady=10, fill="both", expand=True)
 
@@ -124,7 +119,6 @@ class TTSApp:
                                   borderwidth=1)
         self.text_entry.pack(fill="both", expand=True)
 
-  
         settings_frame = ttk.Frame(self.root)
         settings_frame.pack(padx=20, pady=5, fill="x")
 
@@ -144,7 +138,6 @@ class TTSApp:
                                      variable=self.slow_var)
         slow_check.pack(side="left")
 
-       
         button_frame = ttk.Frame(self.root)
         button_frame.pack(pady=10)
 
@@ -167,7 +160,6 @@ class TTSApp:
                                   width=10)
         clear_button.pack(side="left", padx=5)
 
-     
         self.status_var = tk.StringVar(value="Готов")
         status_label = ttk.Label(self.root,
                                  textvariable=self.status_var,
@@ -208,4 +200,4 @@ class TTSApp:
 if __name__ == "__main__":
     root = tk.Tk()
     app = TTSApp(root)
-    root.mainloop()
+    root.mainloop() 
